@@ -5,7 +5,7 @@ services:
     container_name: Database
     image: postgres:alpine
     volumes:
-      - ./data:/var/lib/pgsql/data
+      - ./pgdata:/var/lib/pgsql/data/pgdata
     env_file:
       - .env
     healthcheck:
@@ -20,7 +20,7 @@ services:
       context: .
       dockerfile: ./infra/docker/Dockerfile
     volumes:
-      - ./:/app
+      - ./media/uploads:/app/media/uploads
     env_file:
       - .env
     ports:
@@ -28,3 +28,6 @@ services:
     depends_on:
       db:
         condition: service_healthy
+volumes:
+  pgdata:
+    driver: local

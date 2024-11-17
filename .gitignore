@@ -1,7 +1,5 @@
 media/uploads/*
 !media/uploads/.gitkeep
-data/*
-!data/pgdata/.gitkeep
 db.sqlite3
 .compose/db/*
 .compose/web/*

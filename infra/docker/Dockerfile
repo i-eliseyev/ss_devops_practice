@@ -4,7 +4,6 @@ RUN useradd -ms /bin/bash norootuser
 
 WORKDIR /app
 
-COPY requirements.txt /app/
 COPY ./infra/uwsgi.yaml /app/infra/uwsgi.yaml
 COPY ./infra/docker/entrypoint.sh /docker-entrypoint.sh
 COPY . /app/
