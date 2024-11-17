@@ -1,0 +1,15 @@
+uwsgi:
+  chdir: /app
+  module: parrotsite.wsgi:application
+
+  reload-on-rss: 250
+  harakiri: 45
+  http-timeout: 300
+  worker-reload-mercy: 300
+
+  strict: true
+  need-app: true
+  die-on-term: true
+  lazy-apps: true
+
+  http-socket: :8001

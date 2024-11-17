@@ -78,12 +78,6 @@ WSGI_APPLICATION = 'parrotsite.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -92,20 +86,8 @@ DATABASES = {
         'USER': os.environ['DJANGO_DB_USER'],
         'PASSWORD': os.environ['DJANGO_DB_PASS'],
         'PORT': os.environ['DJANGO_DB_PORT']
-
     }
 }
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'HOST': '200.1.1.8',
-#         'NAME': 'app',
-#         'USER': 'worker',
-#         'PASSWORD': 'worker',
-#         'PORT': '5432'
-
-#     }
-# }
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators

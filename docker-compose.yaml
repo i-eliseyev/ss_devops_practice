@@ -1,0 +1,30 @@
+version: '3.8'
+services:
+
+  db:
+    container_name: Database
+    image: postgres:alpine
+    volumes:
+      - ./data:/var/lib/pgsql/data
+    env_file:
+      - .env
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready -U ${POSTGRES_USER} -d ${POSTGRES_DB}" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+  app:
+    container_name: Web-app
+    build:
+      context: .
+      dockerfile: ./infra/docker/Dockerfile
+    volumes:
+      - ./:/app
+    env_file:
+      - .env
+    ports:
+      - "8001:8001"
+    depends_on:
+      db:
+        condition: service_healthy

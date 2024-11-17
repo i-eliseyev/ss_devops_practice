@@ -16,36 +16,16 @@ ____
 - Pillow 9.0.0
 - psycopg2-binary 2.9.3
 - django-prometheus 2.2.0
+- uwsgi 2.0.20
 
 <h3>Deployment</h3>
 
 ____
 
-
-
-- install Python 3.8
-- install libs 
+* Build and run docker-compose:
 ```shell
-      pip3 install -r requirements.txt
+docker-compose up
 ```
 
-* Set environment export for variables:
-```yaml
-      DJANGO_DB_HOST: db
-      DJANGO_DB_NAME: app
-      DJANGO_DB_USER: worker
-      DJANGO_DB_PASS: worker
-      DJANGO_DB_PORT: "5432"
-      DJANGO_DEBUG: "False"
-```
-
-
-* migrate database:
-```shell
-python3 manage.py migrate
-```
-
-* start application:
-```shell
-python3 manage.py runserver 0.0.0.0:8000
-```
+* Enjoy!
+<h6>http://0.0.0.0:8001</h6>
