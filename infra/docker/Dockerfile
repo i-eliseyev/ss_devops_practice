@@ -1,7 +1,5 @@
 FROM python:3.8-slim
 
-RUN useradd -ms /bin/bash norootuser
-
 WORKDIR /app
 
 COPY ./infra/uwsgi.yaml /app/infra/uwsgi.yaml
@@ -16,6 +14,6 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN chmod +x "/docker-entrypoint.sh"
 ENTRYPOINT ["/docker-entrypoint.sh"]
 
+RUN useradd -ms /bin/bash norootuser
 RUN chown -R norootuser /app
-
 USER norootuser
