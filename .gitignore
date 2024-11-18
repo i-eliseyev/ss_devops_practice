@@ -3,3 +3,4 @@ media/uploads/*
 db.sqlite3
 .compose/db/*
 .compose/web/*
+__pycache__/
